@@ -1,14 +1,19 @@
 <% provide(:title, @category.name) %>
 <div class="container">
   <h1><%=@category.name%></h1>
-    <%@category.products.each do |product|%>
-      <div class="container cat-pdt-container col-md-4 col-xs-12">
-        <%= image_tag product.picture.url if product.picture? %>
-        <div class="container">
-          <%=link_to "#{product.name}", "/products/#{product.id}"%>
-          <%=product.price%>
-        </div>
+    <%@category.wibnis.each do |wibni_cat|%>
+      <div class="col-md-4 col-xs-12">
+        <div class="cat-wibni-container">
+          <a href= "<%= "/wibnis/#{wibni_cat.id}" %>">
+            <%=image_tag wibni_cat.picture.url if  wibni_cat.picture? %>
+          </a>
+          <div class="wibni-words-container">
+            <p><%=link_to "#{wibni_cat[:title]}",  "/wibnis/#{wibni_cat.id}"%></p>
+            <p>"WIBNI sparked by" <%=link_to"#{wibni_cat.user[:name]}",  "/users/#{wibni_cat.user[:id]}"%>
+            </div>
+          </div>
       </div>
     <%end%>
+
 
 </div>

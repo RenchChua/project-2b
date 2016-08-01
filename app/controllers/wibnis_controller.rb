@@ -1,5 +1,6 @@
 class WibnisController < ApplicationController
-  before_action :correct_user_for_new, only: [:new]
+  before_action :correct_user_for_new, only: :new
+  before_action :correct_user_for_changes, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.all
@@ -57,6 +58,12 @@ class WibnisController < ApplicationController
   def correct_user_for_new
       @user = User.find(params[:user_id])
       redirect_to(root_url) unless current_user?(@user)
+  end
+
+  def correct_user_for_changes
+    @wibni = Wibni.find(params[:id])
+    @user = @wibni.user
+    redirect_to(root_url) unless current_user?(@user)
   end
 
 end
