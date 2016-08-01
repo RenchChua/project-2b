@@ -1,0 +1,31 @@
+<% provide(:title, 'All Products') %>
+<h1>All Products</h1>
+<% if logged_in? && current_user.admin?%>
+  <%= link_to "New Product", "/products/new", class: "btn btn-primary"%>
+<%end%>
+
+<div class="container-fluid products-container">
+  <%= will_paginate %>
+    <% (@categories.order:id).each do |category|%>
+      <div class="container-fluid category-container">
+        <%if category.products.length !=0%>
+        <h3><%=category[:name]%></h3>
+          <%category.products.each do |product_cat|%>
+            <div class="cat-pdt-container col-md-4 col-xs-12">
+              <%= image_tag product_cat.picture.url if product_cat.picture? %>
+              <div class="product-words-container">
+                <p><%=link_to "#{product_cat[:name]}", "/products/#{product_cat.id}"%>  $<%=product_cat[:price]%></p>
+                <div class="container">
+                  <%if logged_in? && current_user.admin?%>
+                    <%= link_to "edit |", "/products/#{product_cat.id}/edit"%>
+                    <%= link_to "delete", product_cat, method: :delete, data: { confirm: "You sure?" } %>
+                  <%end%>
+                  </div>
+              </div>
+            </div>
+          <%end%>
+        <%end%>
+      </div>
+    <%end%>
+  <%= will_paginate %>
+</div>

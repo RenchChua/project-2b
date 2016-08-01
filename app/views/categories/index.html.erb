@@ -1,0 +1,12 @@
+<% provide(:title, 'All categories') %>
+<h1>All Categories</h1>
+
+<%= link_to "New Category", "/categories/new", class: "btn btn-primary"%>
+
+<%= will_paginate %>
+
+<ul class="categories">
+  <%= render @categories %>
+</ul>
+
+<%= will_paginate %>

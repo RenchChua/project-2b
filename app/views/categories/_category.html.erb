@@ -1,0 +1,10 @@
+<li>
+  <div class="container">
+    <%= image_tag category.picture.url if category.picture? %>
+  </div>
+  <div class="container">
+    <%= link_to category.name, category %>
+    <%= link_to "| edit |", "/categories/#{category.id}/edit"%>
+    <%= link_to "delete", category, method: :delete, data: { confirm: "You sure?" } %>
+  </div>
+</li>

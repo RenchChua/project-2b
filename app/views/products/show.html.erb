@@ -1,0 +1,11 @@
+<% provide(:title, @product.name) %>
+<div class="show-product">
+  <div class="container product-image">
+      <%= image_tag @product.picture.url if @product.picture? %>
+  </div>
+  <div class="container product-info">
+    <%= @product.name %>
+    <%= @product.price %>
+  </div>
+
+</div>
