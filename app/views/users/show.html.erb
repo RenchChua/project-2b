@@ -30,7 +30,8 @@
             <p><%=link_to "#{wibni_cat[:title]}",    "/wibnis/#{wibni_cat.id}"%></p>
             <p>"WIBNI sparked by"  <%=link_to"#{wibni_cat.user[:name]}",   "/users/#{wibni_cat.user[:id]}"%></p>
             <% if current_user == @user%>
-              <%= link_to "Edit", "/users/#{@user.id}/wibnis/#{wibni_cat.id}/edit"%>
+              <%= link_to "Edit |", "/users/#{@user.id}/wibnis/#{wibni_cat.id}/edit"%>
+              <%= link_to "delete", wibni_cat, method: :delete, data: { confirm: "You sure?" } %>
             <%end%>
           </div>
         </div>

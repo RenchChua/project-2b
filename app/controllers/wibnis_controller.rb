@@ -42,7 +42,7 @@ class WibnisController < ApplicationController
   def destroy
     Wibni.find(params[:id]).destroy
     flash[:success] = "Wibni deleted"
-    redirect_to user
+    redirect_to "/users/#{current_user.id}"
   end
 
   private
