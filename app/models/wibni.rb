@@ -1,6 +1,7 @@
-class Category < ApplicationRecord
-  has_many :wibnis, dependent: :destroy
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+class Wibni < ApplicationRecord
+  belongs_to :user
+  belongs_to :category
+  validates :title, :summary, :description, :picture, presence: true
   mount_uploader :picture, PictureUploader
   validate  :picture_size
   default_scope -> { order(created_at: :desc) }

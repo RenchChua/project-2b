@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731092532) do
+ActiveRecord::Schema.define(version: 20160801021437) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +40,21 @@ ActiveRecord::Schema.define(version: 20160731092532) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "wibnis", force: :cascade do |t|
+    t.string   "title"
+    t.text     "summary"
+    t.text     "description"
+    t.text     "looking_for"
+    t.string   "picture"
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_wibnis_on_category_id"
+    t.index ["title"], name: "index_wibnis_on_title"
+    t.index ["user_id"], name: "index_wibnis_on_user_id"
   end
 
 end

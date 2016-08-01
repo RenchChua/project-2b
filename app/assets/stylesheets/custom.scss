@@ -250,17 +250,51 @@ span.picture {
   }
 }
 
-/* products */
+/* wibni index*/
 
-.cat-pdt-container{
-  margin: 10px;
+.cat-wibni-container{
+  border: 1px solid $light-gray;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  height: 400px;
   img{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     width: 100%;
     height: 300px;
-    border-radius: 8px;
   }
 }
 
+/* each wibni*/
+
+.wibni-container{
+  border: 1px solid black;
+  display: block;
+  img{
+    display: block;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    border-radius: 8px;
+  }
+  .summary-txt{
+    display: block;
+    font-size: 1.6em;
+    width: 100%;
+    margin: auto;
+    margin-top: 5px;
+  }
+  .description{
+    display: block;
+    width: 90%;}
+  .subtitle{
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  .text{
+    font-size: 1.2em;
+  }
+}
 
 /* miscellaneous */
 

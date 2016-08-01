@@ -5,6 +5,9 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
+        <% if current_user == @user%>
+          <%= link_to "New Wibni", "/users/#{@user.id}/wibnis/new", class: "btn btn-primary"%>
+        <%end%>
       </h1>
       <h2>
         <%= "email is #{@user.email}" %>

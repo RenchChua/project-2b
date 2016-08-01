@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :email, format: VALID_EMAIL_REGEX
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  has_many :wibnis, dependent: :destroy
 
   class << self
     # Returns the hash digest of the given string.

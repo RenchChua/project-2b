@@ -1,10 +1,12 @@
 <% provide(:title, "Home") %>
 <div class="center jumbotron">
-  <h1>Welcome to the RenchMart</h1>
+  <h1>Welcome to the WIBNI. Ready to change the World?</h1>
 
   <h2>
-    This is the home page for RenchMart
+    This is the home page for WIBNI
   </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <%if !logged_in?%>
+    <%= link_to "Come. Change the world.", signup_path, class: "btn btn-lg btn-primary" %>
+  <%end%>
 </div>

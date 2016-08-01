@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="wibni-container col-md-8 col-xs-12">
+    <h1><%=@wibni.title%></h1>
+    <%=image_tag @wibni.picture.url if @wibni.picture? %>
+    <div class="summary-txt">
+      <p><%=@wibni.summary%></p>
+    </div>
+    <div class="description">
+      <p class="subtitle">WIBNI Description:</p>
+      <p class="text"><%=@wibni.description%></p>
+    </div>
+    <div class="looking-for">
+      <p class="subtitle">Support Needed:</p>
+      <p class="text"><%=@wibni.looking_for%></p>
+    </div>
+
+
+
+  </div>
+
+</div>
