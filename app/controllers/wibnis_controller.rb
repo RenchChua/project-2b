@@ -23,6 +23,7 @@ class WibnisController < ApplicationController
 
   def show
     @wibni = Wibni.find(params[:id])
+    @comment  = @wibni.comments.build
   end
 
   def edit

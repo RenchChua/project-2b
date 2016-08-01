@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
 
   get 'posts/new'
 
   get 'sessions/new'
 
-  root 'static_pages#home'
+
 
   # dynamic routes
   get '/users', to: 'users#index'
@@ -15,14 +16,20 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+
   resources :users do
     resources :wibnis
+  end
 
+  resources :wibnis do
+    resources :comments
   end
 
   #RESTful routes
+  post '/wibnis/:id/comments/new', to: 'comments#create'
   resources :users
   resources :categories
   resources :wibnis
+  resources :comments
 
 end

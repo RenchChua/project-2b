@@ -1,0 +1,11 @@
+<%= form_for(@comment, url: new_wibni_comment_path(params[:id]), html: { multipart: true }) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control'%>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "How can this be better? How can you help?" %>
+  </div>
+
+
+  <%= f.submit "Help's a coming!", class: "btn btn-primary" %>
+<% end %>

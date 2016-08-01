@@ -5,6 +5,7 @@ class Wibni < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validate  :picture_size
   default_scope -> { order(created_at: :desc) }
+  has_many :comments, dependent: :destroy
 
   # Validates the size of an uploaded picture.
   def picture_size
