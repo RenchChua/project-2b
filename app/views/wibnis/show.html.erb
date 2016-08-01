@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="wibni-container col-md-8 col-xs-12">
+  <aside class="wibni-container col-md-8 col-xs-12">
     <h1><%=@wibni.title%></h1>
     <%=image_tag @wibni.picture.url if @wibni.picture? %>
     <div class="summary-txt">
@@ -13,9 +13,10 @@
       <p class="subtitle">Support Needed:</p>
       <p class="text"><%=@wibni.looking_for%></p>
     </div>
-
-
-
+  </aside>
+  <div class="profile col-md-4 col-xs-12">
+    <%= gravatar_for @wibni.user %>
+    <p><%= @wibni.user.name %></p>
   </div>
 
 </div>
