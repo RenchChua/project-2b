@@ -6,6 +6,7 @@ class Wibni < ApplicationRecord
   validate  :picture_size
   default_scope -> { order(created_at: :desc) }
   has_many :comments, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   # Validates the size of an uploaded picture.
   def picture_size

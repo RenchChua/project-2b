@@ -17,6 +17,13 @@
                   <p><%=link_to "#{wibni_cat[:title]}", "/wibnis/#{wibni_cat.id}"%></p>
                   <p>"WIBNI sparked by" <%=link_to"#{wibni_cat.user[:name]}", "/users/#{wibni_cat.user[:id]}"%>
                 </div>
+                <% if Vote.where(wibni_id: wibni_cat.id).count == 0%>
+                  No one supporting yet
+                <% elsif Vote.where(wibni_id: wibni_cat.id).count == 1 %>
+                  <%= Vote.where(wibni_id: wibni_cat.id).count%> person supporting
+                <% else %>
+                  <%= Vote.where(wibni_id: wibni_cat.id).count%> people supporting
+                <% end %>
               </div>
             </div>
           <%end%>

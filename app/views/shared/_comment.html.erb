@@ -12,7 +12,7 @@
       </div>
       <div class="comment-change">
         <%if current_user?(comment.user)%>
-        <%= link_to "delete", "#{comment.wibni.id}/comment/#{comment.id}/delete", method: :delete,
+          <%= link_to "delete", "#{comment.wibni.id}/comment/#{comment.id}/delete", method: :delete,
                                        data: { confirm: "You sure?" }, class: "btn btn-primary" %>
         <%end%>
       </div>

@@ -36,5 +36,22 @@
     <%= gravatar_for @wibni.user %>
     <p><%= @wibni.user.name %></p>
   </div>
+  <div class="vote-form">
+    <% if can_vote%>
+      <%= link_to "Support!", "/wibnis/#{params[:id]}/votes/new", method: :vote, class: "btn btn-primary" %>
+    <% else %>
+      <%=link_to "Not supporting...", "#{params[:id]}/vote/#{Vote.where(wibni_id: params[:id], user_id: current_user.id).first.id}/unvote", method: :unvote, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="Number of votes">
+    <% if Vote.where(wibni_id: params[:id]).count == 0%>
+      No one supporting yet
+    <% elsif Vote.where(wibni_id: params[:id]).count == 1 %>
+      <%= Vote.where(wibni_id: params[:id]).count%> person supporting
+    <% else %>
+      <%= Vote.where(wibni_id: params[:id]).count%> people supporting
+    <% end %>
+  </div>
+
 
 </div>
