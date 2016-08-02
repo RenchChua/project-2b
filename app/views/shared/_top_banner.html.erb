@@ -1,21 +1,28 @@
 <div class="homepage">
-  <%if !logged_in?%>
-    <a href="./signup">
       <div class="center landing-page-container">
+        <%if !params[:id]%>
 
-        <p id="top-txt">Spark the change you wish to see</p>
+          <p id="top-txt">Spark the change you wish to see</p>
 
-        <p id="bottom-txt"><span>Come.</span> Make the world a better place</p>
+          <p id="bottom-txt"><span>Come.</span> Make the world a better place</p>
+        <%else%>
+          <div class="cat-menu">
+            <p>
+              WIBNIs in 
+              <div class="dropdown dropdown-menu-txt">
+                <a href="#" class="dropdown-toggle cat-dropdown" data-toggle="dropdown">
+                  <%=Category.find(params[:id]).name%> <b class="glyphicon glyphicon-menu-down"></b>
+                </a>
+                <ul class="dropdown-menu cat-dropdown-menu">
+                  <% (category_index.order:id).each do |category|%>
+                    <li><%= link_to "#{category.name}", "/categories/#{category.id}" %></li>
+                  <%end%>
+                </ul>
+              </div>
+            </p>
 
+          </div>
+        <%end%>
       </div>
     </a>
-  <%else%>
-    <div class="center landing-page-container">
-
-      <p id="top-txt">Spark the change you wish to see</p>
-
-      <p id="bottom-txt"><span>Come.</span> Make the world a better place</p>
-
-    </div>
-  <%end%>
 </div>

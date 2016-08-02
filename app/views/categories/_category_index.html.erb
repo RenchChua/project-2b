@@ -5,10 +5,13 @@
         <a href="<%="/categories/#{category.id}"%>">
           <%= image_tag category.picture.url if category.picture? %>
         </a>
-        <%= link_to category.name, category %>
-        <p>
-          Number of WIBNIs: <%=category.wibnis.count%>
-        </p>
+        <div class="cat-name">
+          <%= link_to category.name, category, class: "cat-name-link"%>
+        </div>
+        <div class="cat-count">
+            <%=category.wibnis.count%> WIBNIs in this category
+        </div>
+
         <% if logged_in? && current_user.admin? %>
           <%= link_to "| edit |", "/categories/#{category.id}/edit"%>
           <%= link_to "delete", category, method: :delete, data: { confirm: "You sure?" } %>
