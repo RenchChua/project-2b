@@ -24,6 +24,7 @@ class WibnisController < ApplicationController
   def show
     @wibni = Wibni.find(params[:id])
     @comment  = @wibni.comments.build
+    @comments = @wibni.comments.paginate(page: params[:page], :per_page => 2)
   end
 
   def edit

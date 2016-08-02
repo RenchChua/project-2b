@@ -1,23 +1,38 @@
 <div class="container">
-  <aside class="wibni-container col-md-8 col-xs-12">
-    <h1><%=@wibni.title%></h1>
-    <%=image_tag @wibni.picture.url if @wibni.picture? %>
-    <div class="summary-txt">
-      <p><%=@wibni.summary%></p>
+  <aside class="col-md-8 col-xs-12">
+    <div class="wibni-container">
+      <h1><%=@wibni.title%></h1>
+      <%=image_tag @wibni.picture.url if @wibni.picture? %>
+      <div class="wibni-txt">
+        <div class="summary-txt">
+          <p><%=@wibni.summary%></p>
+        </div>
+        <div class="description">
+          <p class="subtitle">WIBNI Description:</p>
+          <p class="text"><%=@wibni.description%></p>
+        </div>
+        <div class="looking-for">
+          <p class="subtitle">Support Needed:</p>
+          <p class="text"><%=@wibni.looking_for%></p>
+        </div>
+      </div>
     </div>
-    <div class="description">
-      <p class="subtitle">WIBNI Description:</p>
-      <p class="text"><%=@wibni.description%></p>
+    <div class="comments-form-container">
+      <%if logged_in?%>
+        <section class="comments-form">
+          <%= render 'shared/comment_form' %>
+        </section>
+      <%else%>
+        <p>
+          Please <a href="/signup">sign up</a> or <a href="/login">log in</a> to post comments
+        </p>
+      <%end%>
     </div>
-    <div class="looking-for">
-      <p class="subtitle">Support Needed:</p>
-      <p class="text"><%=@wibni.looking_for%></p>
-    </div>
-    <section class="comments_form">
-        <%= render 'shared/comment_form' %>
-      </section>
+    <%=will_paginate @comments%>
+      <%=render "/shared/comment"%>
+    <%=will_paginate @comments%>
   </aside>
-  <div class="profile col-md-4 col-xs-12">
+  <div class="profile-wibni col-md-4 col-xs-12">
     <%= gravatar_for @wibni.user %>
     <p><%= @wibni.user.name %></p>
   </div>

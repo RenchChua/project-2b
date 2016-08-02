@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   #RESTful routes
   post '/wibnis/:id/comments/new', to: 'comments#create'
+  delete 'wibnis/:wibni_id/comment/:comment_id/delete', to: 'comments#delete'
   resources :users
   resources :categories
   resources :wibnis

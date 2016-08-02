@@ -1,0 +1,21 @@
+<% @wibni.comments.each do |comment| %>
+  <% if comment.persisted? %>
+    <div class="comments-container">
+      <div class="comment-title">
+        <%=comment.title%>
+        <p>
+          by <%=link_to comment.user.name, "/users/#{comment.user.id}"%>
+        </p>
+      </div>
+      <div class="comment-content">
+        <%=comment.content%>
+      </div>
+      <div class="comment-change">
+        <%if current_user?(comment.user)%>
+        <%= link_to "delete", "#{comment.wibni.id}/comment/#{comment.id}/delete", method: :delete,
+                                       data: { confirm: "You sure?" }, class: "btn btn-primary" %>
+        <%end%>
+      </div>
+    </div>
+  <% end %>
+<% end %>

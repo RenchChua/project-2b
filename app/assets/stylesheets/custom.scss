@@ -269,23 +269,31 @@ span.picture {
 
 .wibni-container{
   display: block;
+  border-radius: 6px;
+  background-color: #f2eee6;
+  -webkit-box-shadow: 17px 9px 26px -1px rgba(143,135,143,0.62);
+  -moz-box-shadow: 17px 9px 26px -1px rgba(143,135,143,0.62);
+  box-shadow: 17px 9px 26px -1px rgba(143,135,143,0.62);
+  h1{
+    padding-top: 10px;
+  }
   img{
     display: block;
-    width: 90%;
+    width: 95%;
     height: auto;
     margin: auto;
     border-radius: 8px;
   }
-  .summary-txt{
+  .wibni-txt{
     display: block;
-    font-size: 1.6em;
-    width: 100%;
+    width: 95%;
     margin: auto;
     margin-top: 5px;
+    padding-bottom: 10px;
   }
-  .description{
-    display: block;
-    width: 90%;}
+  .summary-txt{
+    font-size: 1.6em;
+  }
   .subtitle{
     font-size: 1.3em;
     font-weight: bold;
@@ -295,10 +303,69 @@ span.picture {
   }
 }
 
-/* comments form */
-.hidden-input{
-  display: none;
+.profile-wibni{
+  margin-top: 22px;
 }
+
+/* comments form */
+.comments-form-container{
+  display: block;
+  -webkit-box-shadow: 17px 9px 31px 2px rgba(143,135,143,0.49);
+  -moz-box-shadow: 17px 9px 31px 2px rgba(143,135,143,0.49);
+  box-shadow: 17px 9px 31px 2px rgba(143,135,143,0.49);
+  background-color: #f7f7f7;
+  margin-top: 20px;
+  border-radius: 8px;
+  p{
+    padding: 10px;
+    font-size: 1.3em;
+  }
+}
+
+.comments-form{
+  display: block;
+  width: 90%;
+  margin: auto;
+}
+
+/* comments */
+.comments-container{
+  display: block;
+  -webkit-box-shadow: 17px 9px 31px 2px rgba(143,135,143,0.49);
+  -moz-box-shadow: 17px 9px 31px 2px rgba(143,135,143,0.49);
+  box-shadow: 17px 9px 31px 2px rgba(143,135,143,0.49);
+  background-color: #f7f7f7;
+  margin-top: 20px;
+  border-radius: 8px;
+  p{
+    font-weight: lighter;
+    font-size: .7em;
+  }
+}
+
+.comment-title{
+  display: block;
+  padding-top: 8px;
+  padding-left: 20px;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.comment-content{
+  display: block;
+  padding: 10px;
+  padding-top: 8px;
+  padding-left: 20px;
+}
+
+.comment-change{
+  .btn{
+    margin-left: 17px;
+    margin-bottom: 10px;
+    padding: 0px 6px;
+  }
+}
+
 
 /* miscellaneous */
 
