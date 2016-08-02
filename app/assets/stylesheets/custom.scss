@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Crimson+Text);
 
 $light-gray: #777;
 
@@ -12,7 +13,7 @@ $light-gray: #777;
 /* universal */
 
 body {
-  padding-top: 110px;
+  padding-top: 80px;
 }
 
 ul{
@@ -64,6 +65,7 @@ h2 {
 
 p {
   font-size: 1.1em;
+  font-family: 'Crimson Text', sans-serif;
   line-height: 1.7em;
 }
 
@@ -118,6 +120,59 @@ footer {
     overflow: auto;
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/* Homepage */
+.homepage{
+  a:hover{
+    text-decoration: none;
+  }
+  .landing-page-container{
+    margin-top: -10px;
+    margin-left: -15%;
+    width: 130%;
+    height: 400px;
+    background-image:url(http://my-smashing.smashingapps.netdna-cdn.com/wp-content/uploads/2010/06/Sunrise-Photos/sunrise36.jpg);
+    background-size: 1500px 400px;
+    background-repeat: no-repeat;
+    img{
+      width: 20%;
+      height: auto;
+      border-radius: 30%;
+    }
+    p{
+      color: white;
+      font-family: Montserrat, sans-serif;;
+      font-size: 3em;
+      font-weight: bolder;
+      span{
+        font-size: 1.8em;
+      }
+    }
+    #top-txt{
+      position: relative;
+      top: 25px;
+      right: 270px;
+    }
+    #bottom-txt{
+      position: relative;
+      bottom: -8px;
+    }
+  }
+}
+
+.home-cat-container{
+  margin-left: -9%;
+  width: 120%;
+  height: 500px;
+  margin-top: 20px;
+}
+
+.below-banner-txt{
+  p{
+    font-size: 2em;
+    text-align: center;
   }
 }
 

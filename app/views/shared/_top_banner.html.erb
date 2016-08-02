@@ -1,0 +1,21 @@
+<div class="homepage">
+  <%if !logged_in?%>
+    <a href="./signup">
+      <div class="center landing-page-container">
+
+        <p id="top-txt">Spark the change you wish to see</p>
+
+        <p id="bottom-txt"><span>Come.</span> Make the world a better place</p>
+
+      </div>
+    </a>
+  <%else%>
+    <div class="center landing-page-container">
+
+      <p id="top-txt">Spark the change you wish to see</p>
+
+      <p id="bottom-txt"><span>Come.</span> Make the world a better place</p>
+
+    </div>
+  <%end%>
+</div>

@@ -1,12 +1,12 @@
 <% provide(:title, 'All categories') %>
 <h1>All Categories</h1>
+<div class="container">
+  <div class="container">
+    <% if logged_in? && current_user.admin? %>
+      <%= link_to "New Category", "/categories/new", class: "btn btn-primary"%>
+    <% end%>
+  </div>
 
-<%= link_to "New Category", "/categories/new", class: "btn btn-primary"%>
 
-<%= will_paginate %>
-
-<ul class="categories">
-  <%= render @categories %>
-</ul>
-
-<%= will_paginate %>
+  <%=render '/categories/category_index'%>
+</div>

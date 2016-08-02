@@ -1,12 +1,9 @@
 <% provide(:title, "Home") %>
-<div class="center jumbotron">
-  <h1>Welcome to the WIBNI. Ready to change the World?</h1>
+<%= render 'shared/top_banner'%>
+<div class="container below-banner-txt">
+  <p>Wouldn't it be nice if we can all come together to make the world a better place? Read WIBNIs by others. Get inspired. Seed your own WIBNI. Inspire others.</p>
+</div>
 
-  <h2>
-    This is the home page for WIBNI
-  </h2>
-
-  <%if !logged_in?%>
-    <%= link_to "Come. Change the world.", signup_path, class: "btn btn-lg btn-primary" %>
-  <%end%>
+<div class="home-cat-container">
+  <%= render 'categories/category_index'%>
 </div>

@@ -1,0 +1,18 @@
+<% provide(:title, 'All categories') %>
+  <%(Category.all.order:id).each do |category|%>
+    <div class="col-md-4 col-xs-12">
+      <div class="cat-wibni-container">
+        <a href="<%="/categories/#{category.id}"%>">
+          <%= image_tag category.picture.url if category.picture? %>
+        </a>
+        <%= link_to category.name, category %>
+        <p>
+          Number of WIBNIs: <%=category.wibnis.count%>
+        </p>
+        <% if logged_in? && current_user.admin? %>
+          <%= link_to "| edit |", "/categories/#{category.id}/edit"%>
+          <%= link_to "delete", category, method: :delete, data: { confirm: "You sure?" } %>
+        <% end%>
+      </div>
+    </div>
+  <%end%>
