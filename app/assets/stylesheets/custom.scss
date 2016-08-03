@@ -524,16 +524,63 @@ span.picture {
     font-size: 1.6em;
   }
   .subtitle{
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-weight: bold;
   }
   .text{
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
 }
 
 .profile-wibni{
+  position: fixed;
   margin-top: 22px;
+  .user-image{
+    border-radius: 8px;
+    width: 92%;
+  }
+  .user-name{
+    display: block;
+    padding-top: 15px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2em;
+    color: #777;
+  }
+  .user-profile-desc{
+    margin-top: 10px;
+    display: block;
+    border-radius: 6px;
+    background-color: #f2eee6;
+    -webkit-box-shadow: 17px 9px 26px -1px rgba(143,135,143,0.62);
+    -moz-box-shadow: 17px 9px 26px -1px rgba(143,135,143,0.62);
+    box-shadow: 17px 9px 26px -1px rgba(143,135,143,0.62);
+    padding: 20px;
+    width: 85%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.3em;
+    text-align: left;
+  }
+}
+
+/* votes */
+.vote-form{
+  .btn-primary{
+    margin-top: 10px;
+    margin-left: 2%;
+  }
+  .btn{
+    padding: 4px 10px;
+    font-size: 1.5em;
+  }
+}
+
+.num-votes{
+  display: block;
+  margin-top: 25px;
+  margin-left: 2%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6em;
+  font-weight: bold;
 }
 
 /* comments form */
@@ -555,14 +602,6 @@ span.picture {
   display: block;
   width: 90%;
   margin: auto;
-}
-
-.user_info{
-  .user-name{
-    font-family: "Montserrat", sans-serif;
-    font-size: 2em;
-    color: #777;
-  }
 }
 
 /* comments */
