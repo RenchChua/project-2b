@@ -15,7 +15,7 @@ class WibnisController < ApplicationController
     @wibni = current_user.wibnis.build(wibni_params)
     if @wibni.save
       flash[:success] = "New WIBNI created"
-      redirect_to wibnis_url
+      redirect_to "/users/#{params[:user_id]}"
     else
       render 'new'
     end

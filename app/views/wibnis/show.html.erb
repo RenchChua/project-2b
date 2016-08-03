@@ -33,15 +33,23 @@
     <%=will_paginate @comments%>
   </aside>
   <div class="profile-wibni col-md-4 col-xs-12">
-    <%= gravatar_for @wibni.user %>
+    <div class="user-image">
+      <%=image_tag @wibni.user.picture.url if @wibni.user.picture? %>
+    </div>
     <p><%= @wibni.user.name %></p>
+    <div class="user-profile-desc">
+      <%=@wibni.user.profile_description if @wibni.user.profile_description? %>
+    </div>
   </div>
   <div class="vote-form">
-    <% if can_vote%>
-      <%= link_to "Support!", "/wibnis/#{params[:id]}/votes/new", method: :vote, class: "btn btn-primary" %>
-    <% else %>
-      <%=link_to "Not supporting...", "#{params[:id]}/vote/#{Vote.where(wibni_id: params[:id], user_id: current_user.id).first.id}/unvote", method: :unvote, class: "btn btn-primary" %>
-    <% end %>
+    <%if logged_in?%>
+      <% if can_vote%>
+        <%= link_to "Support!", "/wibnis/#{params[:id]}/votes/new", method: :vote, class: "btn btn-primary" %>
+      <% else %>
+        <%=link_to "Not supporting...", "#{params[:id]}/vote/#{Vote.where(wibni_id: params[:id], user_id:  current_user.id).first.id}/unvote", method: :unvote, class: "btn btn-primary" %>
+      <% end %>
+    <%end%>
+
   </div>
   <div class="Number of votes">
     <% if Vote.where(wibni_id: params[:id]).count == 0%>

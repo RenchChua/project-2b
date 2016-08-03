@@ -8,7 +8,7 @@
         <%else%>
           <div class="cat-menu">
             <p>
-              WIBNIs in 
+              WIBNIs in
               <div class="dropdown dropdown-menu-txt">
                 <a href="#" class="dropdown-toggle cat-dropdown" data-toggle="dropdown">
                   <%=Category.find(params[:id]).name%> <b class="glyphicon glyphicon-menu-down"></b>
@@ -20,6 +20,21 @@
                 </ul>
               </div>
             </p>
+          </div>
+          <div class="sort-menu">
+            <p>
+              sorted by
+            </p>
+            <div class="dropdown dropdown-menu-txt">
+              <a href="#" class="dropdown-toggle sort-dropdown" data-toggle="dropdown">
+                automagic<b class="glyphicon glyphicon-menu-down"></b>
+              </a>
+              <ul class="dropdown-menu sort-dropdown-list">
+                <li><%= link_to "date created", '#' %></li>
+                <li><%= link_to "support", '#' %></li>
+                <li><%= link_to "users", '#' %></li>
+              </ul>
+            </div>
 
           </div>
         <%end%>

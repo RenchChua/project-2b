@@ -4,38 +4,50 @@
     <aside class="col-md-4">
       <section class="user_info">
         <h1>
-          <%= gravatar_for @user %>
-          <%= @user.name %>
+          <%=image_tag @user.picture.url if @user.picture? %>
+          <%= @user.name, class: "user-name"%>
           <% if current_user == @user%>
             <%= link_to "New Wibni", "/users/#{@user.id}/wibnis/new", class: "btn btn-primary"%>
           <%end%>
         </h1>
-        <h2>
-          <%= "email is #{@user.email}" %>
-        </h2>
-        <h2>
-          <%= "is admin? #{@user.admin}"%>
-        </h2>
       </section>
     </aside>
   </div>
-  <%if @user.wibnis.length !=0%>
-    <%@user.wibnis.each do |wibni_cat|%>
-      <div class="col-md-4 col-xs-12">
-        <div class="cat-wibni-container">
-          <a href= "<%= "/wibnis/#{wibni_cat.id}" %>">
-            <%=image_tag wibni_cat.picture.url if wibni_cat.picture? %>
-          </a>
-          <div class="wibni-words-container">
-            <p><%=link_to "#{wibni_cat[:title]}",    "/wibnis/#{wibni_cat.id}"%></p>
-            <p>"WIBNI sparked by"  <%=link_to"#{wibni_cat.user[:name]}",   "/users/#{wibni_cat.user[:id]}"%></p>
-            <% if current_user == @user%>
-              <%= link_to "Edit |", "/users/#{@user.id}/wibnis/#{wibni_cat.id}/edit"%>
-              <%= link_to "delete", wibni_cat, method: :delete, data: { confirm: "You sure?" } %>
-            <%end%>
+  <div class="container user-wibni-container">
+    <%if @user.wibnis.length !=0%>
+      <%@user.wibnis.each do |wibni_cat|%>
+        <div class="col-md-4 col-xs-12">
+          <div class="cat-wibni-container">
+            <a href= "<%= "/wibnis/#{wibni_cat.id}" %>">
+              <%=image_tag wibni_cat.picture.url if wibni_cat.picture? %>
+            </a>
+            <div class="wibni-name">
+              <%=link_to "#{wibni_cat[:title]}",  "/wibnis/#{wibni_cat.id}", class: "wibni-name-link"%>
+            </div>
+            <div class="wibni-creator">
+              <p>WIBNI sparked by <%=link_to"#{wibni_cat.user[:name]}",  "/users/#{wibni_cat.user[:id]}"%>
+            </div>
+            <div class="num-supporters">
+              <p>
+                <% if Vote.where(wibni_id: wibni_cat.id).count == 0%>
+                  No one supporting yet
+                <% elsif Vote.where(wibni_id: wibni_cat.id).count == 1 %>
+                  <%= Vote.where(wibni_id: wibni_cat.id).count%> person supporting
+                <% else %>
+                  <%= Vote.where(wibni_id: wibni_cat.id).count%> people supporting
+                <% end %>
+              </p>
+              <div class="user-wibni-commands">
+                <% if current_user == @user%>
+                  <%= link_to "Edit |", "/users/#{@user.id}/wibnis/#{wibni_cat.id}/edit"%>
+                  <%= link_to "delete", wibni_cat, method: :delete, data: { confirm: "You sure?" } %>
+                <%end%>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <%end%>
-  <%end%>
+        <%end%>
+    <%end%>
+  </div>
+
 </div>

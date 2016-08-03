@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :email, format: VALID_EMAIL_REGEX
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  mount_uploader :picture, PictureUploader
+  validate  :picture_size
   has_many :wibnis, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
@@ -42,5 +44,12 @@ class User < ApplicationRecord
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # Validates the size of an uploaded picture.
+  def picture_size
+    if picture.size > 5.megabytes
+      errors.add(:picture, "should be less than 5MB")
+    end
   end
 end
