@@ -50,7 +50,7 @@ class WibnisController < ApplicationController
   private
 
   def wibni_params
-      params.require(:wibni).permit(:title, :summary, :description, :looking_for, :category_id, :picture, :user_id)
+      params.require(:wibni).permit(:title, :summary, :description, :looking_for, :category_id, :picture, :user_id, :numvotes)
   end
 
   def admin_user

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  get '/categories/:id/order_by=:order_id', to: 'categories#show'
 
   resources :users do
     resources :wibnis

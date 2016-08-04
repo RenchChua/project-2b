@@ -47,9 +47,9 @@
         <% if Vote.where(wibni_id: params[:id]).count == 0%>
           No one supporting yet
         <% elsif Vote.where(wibni_id: params[:id]).count == 1 %>
-          <%= Vote.where(wibni_id: params[:id]).count%> person supporting
+          <%= @wibni.numvotes%> person supporting
         <% else %>
-          <%= Vote.where(wibni_id: params[:id]).count%> people supporting
+          <%= @wibni.numvotes%> people supporting
         <% end %>
       </div>
       <div class="vote-form">

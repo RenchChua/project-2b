@@ -21,6 +21,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    params[:order_id]? @order_by = params[:order_id] : @order_by = "created_at"
     @category = Category.find(params[:id])
   end
 

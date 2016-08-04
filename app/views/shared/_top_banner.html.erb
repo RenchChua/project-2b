@@ -30,9 +30,9 @@
                 automagic<b class="glyphicon glyphicon-menu-down"></b>
               </a>
               <ul class="dropdown-menu sort-dropdown-list">
-                <li><%= link_to "date created", '#' %></li>
-                <li><%= link_to "support", '#' %></li>
-                <li><%= link_to "users", '#' %></li>
+                <li><%= link_to "date created", "/categories/#{params[:id]}/order_by=created_at" %></li>
+                <li><%= link_to "support", "/categories/#{params[:id]}/order_by=numvotes" %></li>
+                <li><%= link_to "title", "/categories/#{params[:id]}/order_by=title" %></li>
               </ul>
             </div>
 
