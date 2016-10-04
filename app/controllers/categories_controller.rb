@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
 
   def show
     params[:order_id]? @order_by = params[:order_id] : @order_by = "created_at"
-    @category = Category.find(params[:id]).order(@order_by)
+    @category = Category.find(params[:id])
   end
 
   def edit
