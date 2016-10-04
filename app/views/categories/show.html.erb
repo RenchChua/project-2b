@@ -2,7 +2,7 @@
 <%=render "/shared/top_banner" %>
 <div class="cat-show-container">
   <div class="container">
-    <%@category.wibnis.order("#{@order_by} desc").each do |wibni_cat|%>
+    <%@category.wibnis.reorder("#{@order_by} desc").each do |wibni_cat|%>
       <div class="col-md-4 col-xs-12">
         <div class="cat-wibni-container">
           <a href= "<%= "/wibnis/#{wibni_cat.id}" %>">
