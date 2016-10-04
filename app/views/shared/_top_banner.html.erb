@@ -27,7 +27,16 @@
             </p>
             <div class="dropdown dropdown-menu-txt">
               <a href="#" class="dropdown-toggle sort-dropdown" data-toggle="dropdown">
-                automagic<b class="glyphicon glyphicon-menu-down"></b>
+                <% if params[:order_id] == "created_at"%>
+                  <%= "date created"%>
+                <% elsif params[:order_id] == "numvotes"%>
+                  <%= "support"%>
+                <% elsif params[:order_id] == "title"%>
+                  <%= "title"%>
+                <% else %>
+                  <%= "automagic"%>
+                <%end%>
+                  <b class="glyphicon glyphicon-menu-down"></b>
               </a>
               <ul class="dropdown-menu sort-dropdown-list">
                 <li><%= link_to "date created", "/categories/#{params[:id]}/order_by=created_at" %></li>
