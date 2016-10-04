@@ -2,7 +2,9 @@
   <%(Category.all.order:id).each do |category|%>
     <div class="col-md-4 col-xs-12">
       <div class="cat-wibni-container">
-
+        <a href="<%="/categories/#{category.id}"%>">
+          <%= image_tag category.picture.url if category.picture? %>
+        </a>
         <div class="cat-name">
           <%= link_to category.name, category, class: "cat-name-link"%>
         </div>
