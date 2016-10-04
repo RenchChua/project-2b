@@ -368,23 +368,6 @@ span.picture {
   font-weight: bolder;
 }
 
-.cat-wibni-container{
-  border: 1px solid $light-gray;
-  border-radius: 8px;
-  margin-bottom: 50px;
-  margin-left: 12%;
-  height: 400px;
-  background-color: #f7f4ef;
-  -webkit-box-shadow: 15px 18px 42px -16px rgba(0,0,0,0.48);
-  -moz-box-shadow: 15px 18px 42px -16px rgba(0,0,0,0.48);
-  box-shadow: 15px 18px 42px -16px rgba(0,0,0,0.48);
-  img{
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    width: 100%;
-    height: 300px;
-  }
-}
 /* category */
 
 .cat-menu{
@@ -449,7 +432,7 @@ span.picture {
 .cat-wibni-container{
   border: 1px solid $light-gray;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   margin-left: 12%;
   height: 400px;
   background-color: #f7f4ef;
